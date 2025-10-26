@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Journey</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+
+<body>
+
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+    <div class="floating-shape shape3"></div>
+
+    <header class="scrapbook-header">
+        <h1>📔 My Learning Journey</h1>
+        <p class="tagline">where coding meets creativity ✨</p>
+        <p>Click <a href="{% url 'aboutMe' %}" class="center-here">HERE 💌</a> Click here to know a little more about me
+            ✨🌸.</p>
+    </header>
+
+    <main class="scrapbook-container">
+        <section class="intro-note">
+            <div class="taped-photo">
+                <img src="{% static 'images/journal.jpg' %}" alt="Journal Page" class="decor-photo">
+            </div>
+            <div class="note-paper">
+                <h2>About My Learning Journey 💻</h2>
+                <p>
+                    Hello! 👋 I’m on an IT adventure filled with learning, creating, and exploring 🌱💡.
+                    From Python 🐍 to web development 🌐 and cybersecurity 🔒 each project has been a
+                    page in my tech diary 💖. Here’s where I share my progress, projects, and little wins 🎉.
+                </p>
+            </div>
+        </section>
+
+        <!-- ✨ My Learning Journey Table Section -->
+        <section class="journey-table-section">
+            <h2>📅 My Learning Progress Table</h2>
+
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Description</th>
+                        <th>Date Learned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for journey in journeys %}
+                    <tr>
+                        <td>{{ journey.title }}</td>
+                        <td>{{ journey.description }}</td>
+                        <td>{{ journey.date }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No learning journeys added yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <caption style="caption-side: bottom; text-align: center; font-style: italic; margin-top: 8px;">
+                    *Projects developed as part of my continuous learning experience 🧠💡📔*
+                </caption>
+            </table>
+        </section>
+
+        <section class="projects-section">
+            <h2>📚 My Projects</h2>
+
+            <div class="project-list">
+
+                <div class="project-item library-project">
+                    <img src="{% static 'images/library ms.jpg' %}" alt="Library Project" class="project-photo">
+                    <div class="project-text">
+                        <h3>Library Management System</h3>
+                        <p> 📚 My first project after learning many new things was a Library Management System using
+                            SQL.
+                            It tracks books 📖, members 👩‍🎓, and borrowings 📝, making library tasks simpler and more
+                            organized 💡
+                            Through this project, I deepened my understanding of data management, database
+                            relationships, and how to design real-world systems 🔗.
+                            It was not just about coding, it was about transforming logic into something practical,
+                            useful, and truly exciting 🚀</p>
+                    </div>
+                </div>
+
+                <!-- Modified Portfolio Project -->
+                <div class="project-item portfolio-section">
+                    <div class="portfolio-text">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>💻 I designed my Personal Portfolio Website using HTML and CSS to showcase my projects and
+                            skills.
+                            This project allowed me to explore the beauty of design, layout, and interactivity, turning
+                            ideas into a living digital space.
+                            I learned how colors, typography, and structure come together to create a user-friendly
+                            experience ✨.
+                            It was where my passion for creativity and coding truly met in harmony💕
+                        </p>
+                    </div>
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/portfalioproject.jpg' %}" alt="Portfolio Project"
+                            class="project-photo">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div class="admin-proof-section">
+        <h3>Admin Proof📝</h3>
+
+        <div class="image-container">
+            <div class="image-item">
+                <p>About Me</p>
+                <img src="{% static 'images/aboutme.png' %}" alt="About Me">
+            </div>
+
+            <div class="image-item">
+                <p>Learning Journey</p>
+                <img src="{% static 'images/learningjourney.png' %}" alt="Learning Journey">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 JamyC💜
+    </footer>
+</body>
+
+</html>

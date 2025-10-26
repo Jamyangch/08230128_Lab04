@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+
+<body>
+    <header class="hero-section">
+        <h1>About Me</h1>
+        <p class="back-link">← <a href="{% url 'index' %}">BACK TO HOME</a></p>
+    </header>
+
+    <!-- Display admin entries dynamically -->
+    <main class="container">
+        <section class="profile-card">
+            <img src="{% static 'images/profile pic.jpg' %}" alt="Profile Image" class="profile-img">
+            <div class="intro">
+            </div>
+        </section>
+
+        <section class="profile-info">
+            {% for about in abouts %}
+            <h2>{{ about.name }}</h2>
+            <p><strong>Bio:</strong> {{ about.bio }}</p>
+            <p><strong>Hobbies:</strong> {{ about.hobbies }}</p>
+            <p><strong>Email:</strong> {{ about.email }}</p>
+            {% empty %}
+            <p>No about me data added yet.</p>
+            {% endfor %}
+        </section>
+
+
+
+        <section class="skills-section">
+            <h2>💜 My Skills & Interests</h2>
+            <p class="section-desc">A glimpse into the things I love learning and doing ✨</p>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="{% static 'images/Python.jpg' %}" alt="Python" class="skill-icon">
+                    <h3>Python</h3>
+                    <p class="level">Intermediate 🐍</p>
+                </div>
+
+                <div class="skill-card">
+                    <img src="{% static 'images/html.png' %}" alt="HTML" class="skill-icon">
+                    <h3>HTML & CSS</h3>
+                    <p class="level">Intermediate🌸</p>
+                </div>
+
+                <div class="skill-card">
+                    <img src="{% static 'images/java.png' %}" alt="JavaScript" class="skill-icon">
+                    <h3>JavaScript</h3>
+                    <p class="level">Intermediate ⚡</p>
+                </div>
+
+                <div class="skill-card">
+                    <img src="{% static 'images/cybersecuriy.jpg' %}" alt="Cybersecurity" class="skill-icon">
+                    <h3>Cybersecurity</h3>
+                    <p class="level">Beginner 🔒</p>
+                </div>
+            </div>
+
+            <h3 class="interest-heading">🌷 My Interests</h3>
+            <div class="interest-gallery">
+                <div class="interest-item">
+                    <img src="{% static 'images/music.jpg' %}" alt="music" class="interest-img">
+                    <p>Music👩‍💻</p>
+                </div>
+                <div class="interest-item">
+                    <img src="{% static 'images/techblog.jpg' %}" alt="Reading" class="interest-img">
+                    <p>Tech Blogs 📖</p>
+                </div>
+                <div class="interest-item">
+                    <img src="{% static 'images/design.jpg' %}" alt="Design" class="interest-img">
+                    <p>Design 🎨</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2025 JamyC💜
+        </footer>
+</body>
+
+</html>
